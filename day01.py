@@ -18,8 +18,12 @@ def parse_input(filename):
 
 
 def fuel_requirements(mass):
+    sum_fuel = 0
     fuel = floor(mass / 3) - 2
-    return fuel
+    if fuel > 0:
+        sum_fuel += fuel
+        sum_fuel += fuel_requirements(fuel)
+    return sum_fuel
 
 
 def main(filename):
@@ -40,4 +44,4 @@ def main(filename):
 
 
 main("input/day01_short.txt")
-# main("input/day01.txt")
+main("input/day01.txt")
